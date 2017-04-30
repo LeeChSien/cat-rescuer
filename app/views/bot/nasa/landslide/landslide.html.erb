@@ -1,0 +1,64 @@
+<section class="map_block" ng-controller="mapViewCtrl" ng-cloak>
+  <div style="position: fixed; top: 0px; left: 0px; padding: 10px 20px; z-index: 9999; background-color: white">
+    <h4>熱區瀏覽：<a href="#" ng-click="toggleHeatMap()" ng-if="heatMapOn">關閉</a><a href="#" ng-click="toggleHeatMap()" ng-if="!heatMapOn">開啟</a></h4>
+  </div>
+
+  <leaflet center="taiwan" markers="markers" layers="layers" bounds="bounds" controls="controls"></leaflet>
+  <%# render partial: 'query_filter' %>
+</section>
+
+<div ng-show="::false" style="position: fixed; height: 100%; width: 100%; top: 250px; left: 0; z-index: 10000;">
+  <div class="sk-circle">
+    <div class="sk-circle1 sk-child"></div>
+    <div class="sk-circle2 sk-child"></div>
+    <div class="sk-circle3 sk-child"></div>
+    <div class="sk-circle4 sk-child"></div>
+    <div class="sk-circle5 sk-child"></div>
+    <div class="sk-circle6 sk-child"></div>
+    <div class="sk-circle7 sk-child"></div>
+    <div class="sk-circle8 sk-child"></div>
+    <div class="sk-circle9 sk-child"></div>
+    <div class="sk-circle10 sk-child"></div>
+    <div class="sk-circle11 sk-child"></div>
+    <div class="sk-circle12 sk-child"></div>
+  </div>
+</div>
+
+<script type="text/ng-template" id="streetViewModal.html">
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close"
+      ng-click="close()"><span aria-hidden="true">&times;</span></button>
+    <h3 class="modal-title" id="myModalLabel">街景</h3>
+  </div>
+
+  <div class="modal-body">
+    <div id="pano" style="height: 500px;"></div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary"
+      ng-click="close()">關閉</button>
+  </div>
+</script>
+
+<script type="text/ng-template" id="pdfViewModal.html">
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close"
+      ng-click="close()"><span aria-hidden="true">&times;</span></button>
+    <h3 class="modal-title" id="myModalLabel">災害報告</h3>
+  </div>
+
+  <div class="modal-body">
+    <iframe id="PDF_VIEW" height="600px" width="100%"></iframe>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary"
+      ng-click="close()">關閉</button>
+  </div>
+</script>
+
+
+<script>
+  var Disasters = <%= @disasters.to_json.html_safe %>;
+</script>

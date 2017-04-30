@@ -1,0 +1,31 @@
+<div ng-controller="lfCtrl" class="map-container">
+  <leaflet center="center" markers="markers" layers="layers" geojson="geojson" geojson-nested="true"></leaflet>
+  <p style="margin-top: 3px; margin-left: 3px;">土壤液化狀況：{{lique_faction_status}}</p>
+</div>
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.map-container {
+  width: <%= @width %>px;
+  height: <%= @height %>px;
+  margin: 0;
+  padding: 0;
+}
+
+.leaflet-control-container, .gmnoprint, .gm-style-cc {
+  display: none;
+}
+</style>
+
+<script>
+  var County = '<%= @county %>';
+  var Lat = <%= @lat %>;
+  var Lng = <%= @lng %>;
+  var Level = <%= @level %>;
+  var Color = '<%= @color.html_safe %>';
+</script>

@@ -1,0 +1,27 @@
+<div ng-controller="epCtrl" class="map-container">
+  <leaflet center="center" markers="markers" layers="layers"></leaflet>
+</div>
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.map-container {
+  width: <%= @width %>px;
+  height: <%= @height %>px;
+  margin: 0;
+  padding: 0;
+}
+
+.leaflet-control-container, .gmnoprint, .gm-style-cc {
+  display: none;
+}
+</style>
+
+<script>
+  var NasaEscapePoint= <%= @escape_point.to_json.html_safe %>;
+  var Color = '<%= @color.html_safe %>';
+</script>

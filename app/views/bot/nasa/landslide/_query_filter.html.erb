@@ -1,0 +1,126 @@
+<div class="result_block evaluate_block clearfix animate7s_all"
+  ng-class="{'active' : show_query}">
+
+  <span class="switcher" ng-click="toggleQuery()" style="top: 20px;">
+    <i class="fa fa-angle-left" ng-if="show_query"></i>
+    <i class="fa fa-angle-right" ng-if="!show_query"></i>
+  </span>
+
+  <div style="position: absolute; right: -40px; top: 90px;">
+    <div>
+      <div class="btn-group-vertical" style="width: 40px;">
+        <button type="button" class="btn btn-sm btn-primary btn-draw" style="margin-top: 0"
+          ng-click="drawLine()"
+          ng-disabled="!selected_town"
+          tooltip="線段查詢" tooltip-placement="right" tooltip-class="tooltip-width">
+          <img src="/images/vector-line.png" width="20" height="20"/>
+        </button>
+        <button type="button" class="btn btn-sm btn-primary btn-draw" style="margin-top: 0"
+          ng-click="drawRet()"
+          ng-disabled="!selected_town"
+          tooltip="方型框選" tooltip-placement="right" tooltip-class="tooltip-width">
+          <img src="/images/square-outline.png" width="20" height="20"/>
+        </button>
+        <button type="button" class="btn btn-sm btn-primary btn-draw" style="margin-top: 0"
+          ng-click="drawPolygon()"
+          ng-disabled="!selected_town"
+          tooltip="多邊形框選" tooltip-placement="right" tooltip-class="tooltip-width">
+          <img src="/images/pentagon-outline.png" width="20" height="20"/>
+        </button>
+        <button type="button" class="btn btn-sm btn-primary btn-draw" style="margin-top: 0"
+          ng-click="drawCircle()"
+          ng-disabled="!selected_town"
+          tooltip="方圓框選" tooltip-placement="right" tooltip-class="tooltip-width">
+          <img src="/images/circle-outline.png" width="20" height="20"/>
+        </button>
+      </div>
+    </div>
+    <div style="
+      display: inline-block;
+      border-top: 3px solid #0000CD;">
+      <button class="btn btn-primary btn-sm" style="width: 40px; margin-top: 0"
+        ng-click="cleanDraw()"
+        ng-disabled="!selected_town"
+        tooltip="清除圖形" tooltip-placement="right" tooltip-class="tooltip-width">
+        <img src="/images/delete.png" width="20" height="20"/>
+      </button>
+    </div>
+  </div>
+
+  <div class="scroll">
+
+    <div class="result-list">
+      <hr>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" ng-class="{active: tab_status == 'query_filter'}">
+          <a href="#" aria-controls="query_filter" role="tab" data-toggle="tab" ng-click="setTab('query_filter')">
+            詳細資料</a>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in" ng-class="{active: tab_status == 'query_filter'}" id="price_volume">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+legend {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.panel-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.panel-heading {
+  padding: 8px;
+}
+
+.panel-body {
+  padding: 8px;
+}
+
+.panel-title {
+  font-size: 16px;
+}
+
+.form-control {
+  font-size: 12px;
+  height: 32px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.panel-body .btn {
+  font-size: 12px;
+}
+
+.evaluate_block.result_block .switcher {
+  background-color: #00008B;
+}
+
+.btn-primary {
+  background-color: #00008B;
+}
+
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, .btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+  background-color: #4169E1;
+  border-color: #0000CD;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  background-color: #00008B;
+}
+</style>

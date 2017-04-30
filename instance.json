@@ -1,0 +1,14 @@
+{
+    "InstanceType": "t2.small", 
+    "RootDeviceType": "ebs",
+    "BlockDeviceMappings": [
+        {
+            "DeviceName": "ROOT_DEVICE",
+            "Ebs": {
+                "VolumeSize": 50,
+                "VolumeType": "gp2",
+                "DeleteOnTermination": true
+            }
+        }
+    ]
+}
